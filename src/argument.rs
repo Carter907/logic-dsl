@@ -1,10 +1,11 @@
 use crate::conclusion::Conclusion;
 use crate::premise::Premise;
 
+#[derive(Debug)]
 pub struct Argument {
-    vars: Vec<char>,
-    premises: Vec<Premise>,
-    conclusion: Conclusion,
+    pub(crate) vars: Vec<char>,
+    pub(crate) premises: Vec<Premise>,
+    pub(crate) conclusion: Conclusion,
 }
 
 impl Argument {
@@ -24,6 +25,7 @@ P -> Q
 P
 --
 Q";
+
 
     }
 }

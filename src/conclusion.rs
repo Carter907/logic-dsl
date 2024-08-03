@@ -1,3 +1,4 @@
+#[derive(Debug)]
 pub struct Conclusion {
     content: String,
 }
@@ -8,9 +9,9 @@ impl Conclusion {
             content: String::new(),
         }
     }
-    pub fn from(str: &str) -> Conclusion {
+    pub fn from(content: String) -> Conclusion {
         Conclusion {
-            content: str.to_string(),
+            content,
         }
     }
 

@@ -19,7 +19,7 @@ pub fn argument(_input: TokenStream) -> TokenStream {
 
     // Parse the input tokens into a syntax tree
     let argument = parse_macro_input!(_input as Argument);
-    let result = argument.is_valid_argument();
+    let result = format!("{:?}", argument);
 
     // Generate the output hashmap inside a code block so that
     // we don't shadow any existing variables. Return the hashmap
