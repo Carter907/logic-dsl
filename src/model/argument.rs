@@ -1,5 +1,5 @@
-use crate::conclusion::Conclusion;
-use crate::premise::Premise;
+use crate::model::conclusion::Conclusion;
+use crate::model::premise::Premise;
 
 #[derive(Debug)]
 pub struct Argument {
@@ -10,22 +10,26 @@ pub struct Argument {
 
 impl Argument {
     pub fn is_valid_argument(&self) -> bool {
+        let first_premise_str = &self.premises[0];
+
+
         false
+    }
+    pub fn new() -> Argument {
+
+        Argument {
+            vars: vec![],
+            premises: vec![],
+            conclusion: Conclusion::new(),
+        }
     }
 }
 
 #[cfg(test)]
 mod logic_test {
-    use crate::argument::Argument;
 
     #[test]
     fn test_argument() {
-        let source = "let P, Q
-P -> Q
-P
---
-Q";
-
 
     }
 }
