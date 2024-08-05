@@ -13,13 +13,10 @@ pub fn argument(_input: TokenStream) -> TokenStream {
     if _input.is_empty() {
         panic!("At least a type must be specified for an empty hashmap");
     }
-    let argument: Argument = _input
-        .to_string()
-        .parse::<Argument>()
-        .unwrap_or(Argument::new());
-
-    let is_valid = argument.is_valid_argument();
+    let argument = _input
+        .to_string().parse::<Argument>().unwrap().is_valid_argument();
 
 
-    quote!({println!("{}", #is_valid)}).into()
+
+    quote!({println!("{}", #argument)}).into()
 }

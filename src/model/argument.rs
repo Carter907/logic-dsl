@@ -1,3 +1,4 @@
+use std::collections::HashMap;
 use crate::model::conclusion::Conclusion;
 use crate::model::premise::Premise;
 
@@ -10,8 +11,11 @@ pub struct Argument {
 
 impl Argument {
     pub fn is_valid_argument(&self) -> bool {
-        let first_premise_str = &self.premises[0];
+        let mut table: HashMap<char, bool> = HashMap::new();
 
+        for char in self.vars {
+            table.insert(char, true);
+        }
 
         false
     }
@@ -27,9 +31,17 @@ impl Argument {
 
 #[cfg(test)]
 mod logic_test {
+    use crate::model::argument::Argument;
 
     #[test]
     fn test_argument() {
 
+        let argument = "let P, Q
+        P -> Q
+        P
+        --
+        Q".parse::<Argument>().unwrap();
+
+        println!("{:?}", argument)
     }
 }
