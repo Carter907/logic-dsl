@@ -11,11 +11,17 @@ pub struct Argument {
 
 impl Argument {
     pub fn is_valid_argument(&self) -> bool {
-        let mut table: HashMap<char, bool> = HashMap::new();
+        let mut table: HashMap<&char, bool> = HashMap::new();
 
-        for char in self.vars {
+        // initial values
+        for char in &self.vars {
             table.insert(char, true);
         }
+
+        // create a loop in which the table
+
+
+        println!("{:?}", table);
 
         false
     }
@@ -41,7 +47,8 @@ mod logic_test {
         P
         --
         Q".parse::<Argument>().unwrap();
+        let validity = argument.is_valid_argument();
 
-        println!("{:?}", argument)
+        println!("{:?}", validity)
     }
 }
